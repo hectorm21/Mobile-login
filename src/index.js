@@ -40,7 +40,11 @@ class App extends React.Component{
       .then((userCredential) => {
         console.log("sesion iniciada", userCredential.user);
         console.log("state", this.state);
-        const user = userCredential.user;
+        const connectedUser = {...this.state.connectedUser};
+        connectedUser = userCredential.user;
+        this.setState({
+          connectedUser:connectedUser
+        })
         // ...
       })
       .catch((error) => {
