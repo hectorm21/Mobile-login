@@ -8,7 +8,7 @@ class LoginForm extends React.Component{
     passwordRef = React.createRef();
     login = (event) => {
         event.preventDefault();  
-        console.log("doing login in form");
+        console.log("props",this.props);
         const tryingUser = {
             email:this.emailRef.current.value,
             password:this.passwordRef.current.value
@@ -19,30 +19,31 @@ class LoginForm extends React.Component{
 
     render() {
         return(
-            <form className="" onSubmit={this.login}>
-                <input ref={this.emailRef} type="email" name="" placeholder="Email" required/>
-                <input ref={this.passwordRef} type="password" name="password" placeholder="********" required/>
-                <input type="submit" name="loginSubmit"  value="Log in"  id="loginSubmit"/>
-            </form>
+            <React.Fragment>
+                <form className="" onSubmit={this.login}>
+                    <input
+                        ref={this.emailRef}
+                        type="email"
+                        name=""
+                        placeholder="Email"
+                        required/>
+                    <input
+                        ref={this.passwordRef}
+                        type="password"
+                        name="password"
+                        placeholder="********"
+                        required/>
+
+                    {this.props.loginFormError ? <div className="error">{this.props.loginFormError}</div> : "" }
+
+                    <input
+                        type="submit"
+                        name="loginSubmit"
+                        value="Log in"
+                        id="loginSubmit"/>
+                </form>
+            </React.Fragment>
         )
     }
 }
-
-/*const isEmail = function(emailAdress) {
-    const regex = /^((([^<>()[]\.,;:s@"]+(.[^<>()[]\.,;:s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,})))?$/;
-    if (!regex.test(emailAdress)) {
-      return new Error("introduzca una dirección de correo válida");
-    }
-  }
-
-  const strongPassword = function(password) {
-if(password.length < 8){
-     return new Error("su contraseña debe tener al menos ocho caracteres") 
-    }
-  }
-
-LoginForm.propTypes = {
-email: isEmail,
-pasword: strongPassword
-}*/
 export default LoginForm;
