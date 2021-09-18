@@ -4,6 +4,8 @@ import React from "react";
 //import propTypes from "prop-types";
 class LoginForm extends React.Component{
 
+    emailRef = React.createRef();
+    passwordRef = React.createRef();
     login = (event) => {
         event.preventDefault();  
         console.log("doing login in form");

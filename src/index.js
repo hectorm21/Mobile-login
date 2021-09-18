@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import LoginForm from './components/login-form/login-form';
 import { initializeApp } from "firebase/app";
+//import * as firebase from "firebase/auth";
 import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
+import WelcomePage from './components/welcome-page/welcome-page';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAIJPOyPQLhf9fehpcF2HHpUmyW-aNcBiU",
@@ -34,35 +36,35 @@ class App extends React.Component{
   }
   doLogin = tryingUser =>{
 
-    console.log(tryingUser);
+    console.log("entra en index.js");
     const auth = getAuth();
     signInWithEmailAndPassword(auth, tryingUser.email, tryingUser.password)
       .then((userCredential) => {
-        console.log("sesion iniciada", userCredential.user);
-        console.log("state", this.state);
-        const connectedUser = {...this.state.connectedUser};
-        connectedUser = userCredential.user;
+        let connectedUser = {...this.state.connectedUser};
+        connectedUser = userCredential.user; 
         this.setState({
           connectedUser:connectedUser
         })
-        // ...
+        ReactDOM.render(<WelcomePage connectedUser={this.state.connectedUser}/>, document.getElementById('main'));  
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
       });
-
-
-
-
   }
+
     constructor(){
         super()
 
     }
     render() {
+      let isSigned = getAuth().currentUser == null ? true : false;
+      console.log(isSigned);
+      console.log(getAuth().currentUser);
       return(
-        <LoginForm doLogin={this.doLogin}/>
+        <React.Fragment>
+          {isSigned ? <LoginForm doLogin={this.doLogin}/> : <WelcomePage connectedUser={this.state.connectedUser}/> }
+        </React.Fragment>
       )
     }
     
