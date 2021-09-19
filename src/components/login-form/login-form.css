@@ -1,0 +1,44 @@
+input [type=text], input[type=email], input[type=password] {
+    font-size: 15px;
+    min-height: 30px;
+    min-width: 200px;
+    padding:10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 30px;
+    border: none;
+    border-bottom: 2px solid grey;
+
+}
+input:focus{
+    outline: none;
+}
+ .candado {
+    width: 20%;
+    max-width: 80px ;
+    height: auto;
+    margin-top:100px
+}
+.loginButon{
+    font-size: 20px;
+    min-height: 30px;
+    min-width: 220px;
+    color:white;
+    background-color: #204a81;
+    border:none;
+    border-radius: 5px;
+    padding:10px;
+}
+.errorMessage{
+    margin:0px auto;
+    text-align:left;
+    font-size: 16px;
+    min-height: 30px;
+    max-width: 200px;
+    padding:10px;
+    margin-top: 30px;
+    border-radius: 5px;
+    color:#ff6666;
+    background-color: #ffcccc;
+    border: 2px solid #ff6666;
+}

@@ -1,0 +1,21 @@
+#displayDigitsContainer{
+    margin:0px auto;
+    float:left;
+    padding:10px;
+    font-family: "Roboto";
+    /*background-color: pink;*/
+}
+.digits{
+    font-family: "Roboto" !important;
+    width: 50px;
+    max-width: 80px ;
+    font-size:40px;
+    /*background-color: red;*/
+    color:grey;
+}
+.digitText{
+    margin:0px auto;
+    font-family: "Roboto";
+    /*background-color: blue;*/
+    color:grey;
+}

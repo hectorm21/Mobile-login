@@ -1,0 +1,44 @@
+body{
+    margin: 0px auto;
+}
+@font-face {
+    font-family: "Roboto";
+    src: url("../../assets/fonts/Roboto-Regular.ttf") format("truetype")
+  }
+
+#main {
+    font-family: "Roboto";
+    max-width: 100%;
+    /* max-width: 1520px;
+    /*background-color: black;*/
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  #mcontent {
+    flex: 1;
+    /*background-color: fuchsia;*/
+    min-height: 500px;
+    text-align: center;
+  }
+  
+  #rscontent, #lscontent {
+    display:none;/*escondemos los sidebars haasta que sean necesarios*/
+    max-width: 200px;
+    min-width: 70px;
+    background-color: red;
+  }
+  
+  #content {
+    display: none;
+    flex: 0 0 100%;
+    min-height: 180px;
+    text-align: center;
+    background-color: darkviolet;
+  }
+  
+  /*#content > h2 {
+    color:blue;
+  }*/
+  

@@ -2,6 +2,7 @@ import React from 'react';
 import LoginForm from '../login-form/login-form';
 import WelcomePage from '../welcome-page/welcome-page';
 import { LoginService } from '../../services/login-service';
+import './App.css';
 
 class App extends React.Component{
 
@@ -20,6 +21,7 @@ class App extends React.Component{
 
       let connectedUser = {...this.state.connectedUser};
       connectedUser = userCredential.user;
+      
       this.setState({
         connectedUser:connectedUser,
         loginFormError: null
@@ -30,7 +32,7 @@ class App extends React.Component{
     })
     .catch((error) => {
         this.setState({
-            loginFormError: "email or password are incorrects"
+            loginFormError: "Email or password are incorrects"
           })
         console.log("state", this.state);
         this.render();
@@ -51,19 +53,26 @@ class App extends React.Component{
   }
 
     render() {
-
       return(
         <React.Fragment>
-            {LoginService.isActiveSession() ? <WelcomePage
-                                            connectedUser={this.state.connectedUser}
-                                            logOut={this.logOut}/> 
-                                            
-                                            :
+            <div id="content">
+            </div>
+            <div id="rscontent">
 
-                                            <LoginForm
-                                            doLogin={this.doLogin}
-                                            loginFormError = {this.state.loginFormError}   
-                                            /> }
+            </div>
+            <div id="mcontent">
+                {LoginService.isActiveSession() ? <WelcomePage
+                                                connectedUser={this.state.connectedUser}
+                                                logOut={this.logOut}/> 
+                                                
+                                                :
+
+                                                <LoginForm
+                                                doLogin={this.doLogin}
+                                                loginFormError = {this.state.loginFormError}   
+                                                /> }
+            </div>
+            <div id="lscontent"></div>
         </React.Fragment>
       )
     }

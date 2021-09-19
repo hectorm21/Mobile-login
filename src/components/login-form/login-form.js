@@ -1,7 +1,6 @@
 import React from "react";
-//import InputField from "../input-field/input-field";
-//import CustomButton from "../button/button";
-//import propTypes from "prop-types";
+import './login-form.css';
+import '../App/App.css';
 class LoginForm extends React.Component{
 
     emailRef = React.createRef();
@@ -20,24 +19,27 @@ class LoginForm extends React.Component{
     render() {
         return(
             <React.Fragment>
-                <form className="" onSubmit={this.login}>
+                <img src="img/candado.PNG" className="candado"></img>
+                <form  onSubmit={this.login}>
                     <input
                         ref={this.emailRef}
                         type="email"
                         name=""
                         placeholder="Email"
                         required/>
+                        <br/>
                     <input
                         ref={this.passwordRef}
                         type="password"
                         name="password"
                         placeholder="********"
                         required/>
-
-                    {this.props.loginFormError ? <div className="error">{this.props.loginFormError}</div> : "" }
-
+                    <br/>
+                    {this.props.loginFormError ? <div className="errorMessage">{this.props.loginFormError}</div> : "" }
+                    <br/>
                     <input
                         type="submit"
+                        className="loginButon"
                         name="loginSubmit"
                         value="Log in"
                         id="loginSubmit"/>
