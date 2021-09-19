@@ -26,7 +26,6 @@ class App extends React.Component{
         connectedUser:connectedUser,
         loginFormError: null
       })
-      console.log("state", this.state);
       this.render();
 
     })
@@ -34,9 +33,7 @@ class App extends React.Component{
         this.setState({
             loginFormError: "Email or password are incorrects"
           })
-        console.log("state", this.state);
         this.render();
-      console.log("error iniciar sesion")
     });
   }
 
@@ -45,10 +42,8 @@ class App extends React.Component{
         this.setState({
             connectedUser:{}
           })
-        console.log("sesion cerrada");
         this.render();
     }).catch((error) => {
-        console.log("error al cerrar sesion");
     })
   }
 

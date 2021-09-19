@@ -9,8 +9,6 @@ body{
 #main {
     font-family: "Roboto";
     max-width: 100%;
-    /* max-width: 1520px;
-    /*background-color: black;*/
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -18,20 +16,19 @@ body{
   
   #mcontent {
     flex: 1;
-    /*background-color: fuchsia;*/
     min-height: 500px;
     text-align: center;
   }
   
   #rscontent, #lscontent {
-    display:none;/*escondemos los sidebars haasta que sean necesarios*/
+    display:none;/*escondemos los sidebars hasta que sean necesarios*/
     max-width: 200px;
     min-width: 70px;
     background-color: red;
   }
   
   #content {
-    display: none;
+    display: none; /*escondemos la cabecera hasta que sean necesaria*/
     flex: 0 0 100%;
     min-height: 180px;
     text-align: center;

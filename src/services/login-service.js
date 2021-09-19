@@ -20,10 +20,8 @@ const firebaseConfig = {
         
         createUserWithEmailAndPassword(auth, userEmail, password)
         .then((userCredential) => {
-            console.log("usuario creado");
         })
         .catch((error) => {
-            console.log("error al crear usuario");
         });
     }
 

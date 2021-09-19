@@ -9,7 +9,6 @@ class WelcomePage extends React.Component{
 
     logOut = (event) => {
         event.preventDefault();  
-        console.log("log out in component");
         this.props.logOut();
     }
 
