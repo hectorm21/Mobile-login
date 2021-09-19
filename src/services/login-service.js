@@ -40,6 +40,10 @@ const firebaseConfig = {
     static isActiveSession = () => {
         return getAuth().currentUser == null ? false : true;
     }
+    static lastSignIn = () => {
+        return auth.currentUser.metadata.lastLoginAt//.lastSignInTime //Sat, 18 Sep 2021 14:17:28 GMT
+                                        //lastLoginAt // 1631974648950
+    }
 }
 export { LoginService };
 
