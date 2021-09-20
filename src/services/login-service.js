@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAIJPOyPQLhf9fehpcF2HHpUmyW-aNcBiU",
@@ -11,8 +11,8 @@ const firebaseConfig = {
   };
   
   
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth();
+  const app = initializeApp(firebaseConfig) ;
+  const auth = getAuth() ;
 
  class LoginService {
 
@@ -27,21 +27,21 @@ const firebaseConfig = {
 
 
      static logIn = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password)
+        return signInWithEmailAndPassword(auth, email, password) ;
     }
 
 
     static logOut = () => {
-        return signOut(auth);
+        return signOut(auth) ;
     }
 
     static isActiveSession = () => {
-        return Boolean(getAuth().currentUser)
+        return Boolean(getAuth().currentUser) ;
     }
     static lastSignIn = () => {
-        return auth.currentUser.metadata.lastSignInTime //Sat, 18 Sep 2021 14:17:28 GMT
+        return auth.currentUser.metadata.lastSignInTime ; //Sat, 18 Sep 2021 14:17:28 GMT
     }
 }
-export { LoginService };
+export { LoginService } ;
 
 
