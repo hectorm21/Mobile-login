@@ -13,13 +13,14 @@ input [type=text], input[type=email], input[type=password] {
 input:focus{
     outline: none;
 }
- .candado {
+ .padlock {
     width: 20%;
     max-width: 80px ;
     height: auto;
     margin-top:100px
 }
 .loginButon{
+    font-family: "Roboto";
     font-size: 20px;
     min-height: 30px;
     min-width: 220px;

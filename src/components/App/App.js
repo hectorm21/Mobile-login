@@ -19,9 +19,7 @@ class App extends React.Component{
     LoginService.logIn(tryingUser.email, tryingUser.password)
     .then((userCredential) => {
 
-      let connectedUser = {...this.state.connectedUser};
-      connectedUser = userCredential.user;
-      
+      let connectedUser = userCredential.user;
       this.setState({
         connectedUser:connectedUser,
         loginFormError: null

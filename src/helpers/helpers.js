@@ -6,27 +6,36 @@ class HelpersService {
 
      static timeSinceLastSignin = () => {
 
-       let last = new Date(LoginService.lastSignIn()).getTime();
-       let now = Date.now();
+       const last = new Date(LoginService.lastSignIn()).getTime();
+       const now = Date.now();
+       const msInAsecond = 1000;
+       const secsInAminute = 60;
+       const minsInAnHour = 60;
+       const hoursInAday = 24;
 
-       let diff = (now - last) / 1000;
+       let diff = (now - last) / msInAsecond;
        diff = Math.abs(Math.floor(diff));
 
-       let days = Math.floor(diff/(24*60*60));
-       let leftSec = diff - days * 24*60*60;
+       const days = Math.floor(diff/(hoursInAday*minsInAnHour*secsInAminute));
+       let leftSec = diff - days * hoursInAday*minsInAnHour*secsInAminute;
 
-       let hours = Math.floor(leftSec/(60*60));
-       leftSec = leftSec - hours * 60*60;
+       const hours = Math.floor(leftSec/(minsInAnHour*secsInAminute));
+       leftSec = leftSec - hours * minsInAnHour*secsInAminute;
 
-       let mins = Math.floor(leftSec/(60));
-       leftSec = leftSec - mins * 60;
+       const mins = Math.floor(leftSec/(secsInAminute));
+       leftSec = leftSec - mins * secsInAminute;
 
        return {
-           days: days > 10 ?  days :  days = "0"+days,
-           hours: hours > 10 ?  hours :  hours = "0"+hours,
-           mins: mins > 10 ?  mins :  mins = "0"+mins,
-           secs: leftSec > 10 ?  leftSec :  leftSec = "0"+leftSec
+           days: this.formatTimeDigits(days),
+           hours: this.formatTimeDigits(hours),
+           mins: this.formatTimeDigits(mins),
+           secs: this.formatTimeDigits(leftSec)
        }
+
+    }
+    
+    static formatTimeDigits (count){
+        return count >= 10 ? count : `0${count}`;
     }
 }
 export { HelpersService };

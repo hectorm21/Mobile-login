@@ -6,7 +6,7 @@ class DigitDisplay extends React.Component {
 
     render() {
         return(
-            <div id="displayDigitsContainer">
+            <div className="displayDigitsContainer">
                 <div className="digits">{this.props.digits}</div>
                 <div className="digitText">{this.props.text}</div>
             </div>

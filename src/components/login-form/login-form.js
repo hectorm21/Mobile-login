@@ -7,7 +7,6 @@ class LoginForm extends React.Component{
     passwordRef = React.createRef();
     login = (event) => {
         event.preventDefault();  
-        console.log("props",this.props);
         const tryingUser = {
             email:this.emailRef.current.value,
             password:this.passwordRef.current.value
@@ -19,7 +18,7 @@ class LoginForm extends React.Component{
     render() {
         return(
             <React.Fragment>
-                <img src="img/candado.PNG" className="candado"></img>
+                <img src="img/candado.PNG" className="padlock"></img>
                 <form  onSubmit={this.login}>
                     <input
                         ref={this.emailRef}
