@@ -45,7 +45,7 @@ class WelcomePage extends React.Component{
                 </div>
 
             </React.Fragment>
-        )
+        ) ;
     }
 }
 

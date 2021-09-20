@@ -44,7 +44,7 @@ class LoginForm extends React.Component {
                         id = 'loginSubmit'/>
                 </form>
             </React.Fragment>
-        )
+        ) ;
     }
 }
 export default LoginForm ;

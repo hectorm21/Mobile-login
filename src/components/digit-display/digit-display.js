@@ -10,7 +10,7 @@ class DigitDisplay extends React.Component {
                 <div className = 'digits'>{this.props.digits}</div>
                 <div className = 'digitText'>{this.props.text}</div>
             </div>
-        )
+        ) ;
     }
 }
 

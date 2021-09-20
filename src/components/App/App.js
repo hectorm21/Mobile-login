@@ -78,7 +78,7 @@ class App extends React.Component{
             </div>
             <div id = 'lscontent'></div>
         </React.Fragment>
-      )
+      ) ;
     }
     
 }

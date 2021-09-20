@@ -35,7 +35,7 @@ class HelpersService {
     }
     
     static formatTimeDigits (count){
-        return count >= 10 ? count : `0${count}`;
+        return count >= 10 ? count : `0${count}` ;
     }
 }
 export { HelpersService } ;
