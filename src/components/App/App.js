@@ -2,6 +2,7 @@ import React from 'react';
 import LoginForm from '../login-form/login-form';
 import WelcomePage from '../welcome-page/welcome-page';
 import { LoginService } from '../../services/login-service';
+import { HelpersService } from '../../helpers/helpers';
 import './App.css';
 
 class App extends React.Component{
@@ -11,7 +12,8 @@ class App extends React.Component{
     tryingUser:{
     },
     connectedUser:{
-    }
+    },
+    time:{}
   }
   
   
@@ -35,6 +37,12 @@ class App extends React.Component{
     });
   }
 
+  refreshClock = () => {
+    this.setState({
+      time:  HelpersService.timeSinceLastSignin()
+    })
+  }
+
   logOut = () =>{
     LoginService.logOut().then(() => {
         this.setState({
@@ -56,7 +64,10 @@ class App extends React.Component{
             <div id="mcontent">
                 {LoginService.isActiveSession() ? <WelcomePage
                                                 connectedUser={this.state.connectedUser}
-                                                logOut={this.logOut}/> 
+                                                logOut={this.logOut}
+                                                refreshClock={this.refreshClock}
+                                                time={this.state.time}
+                                                /> 
                                                 
                                                 :
 
