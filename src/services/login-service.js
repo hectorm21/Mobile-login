@@ -39,8 +39,7 @@ const firebaseConfig = {
         return getAuth().currentUser == null ? false : true;
     }
     static lastSignIn = () => {
-        return auth.currentUser.metadata.lastLoginAt//.lastSignInTime //Sat, 18 Sep 2021 14:17:28 GMT
-                                        //lastLoginAt // 1631974648950
+        return auth.currentUser.metadata.lastSignInTime //Sat, 18 Sep 2021 14:17:28 GMT
     }
 }
 export { LoginService };

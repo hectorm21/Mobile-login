@@ -6,7 +6,7 @@ class HelpersService {
 
      static timeSinceLastSignin = () => {
 
-       let last = LoginService.lastSignIn();
+       let last = new Date(LoginService.lastSignIn()).getTime();
        let now = Date.now();
 
        let diff = (now - last) / 1000;
