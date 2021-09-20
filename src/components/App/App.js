@@ -1,39 +1,39 @@
-import React from 'react';
-import LoginForm from '../login-form/login-form';
-import WelcomePage from '../welcome-page/welcome-page';
-import { LoginService } from '../../services/login-service';
-import { HelpersService } from '../../helpers/helpers';
-import './App.css';
+import React from 'react' ;
+import LoginForm from '../login-form/login-form' ;
+import WelcomePage from '../welcome-page/welcome-page' ;
+import { LoginService } from '../../services/login-service' ;
+import { HelpersService } from '../../helpers/helpers' ;
+import './App.css' ;
 
 class App extends React.Component{
 
   state = {
-    loginFormError:'',
-    tryingUser:{
+    loginFormError: '',
+    tryingUser: {
     },
-    connectedUser:{
+    connectedUser: {
     },
-    time:{}
+    time: {}
   }
   
   
-  doLogin = tryingUser =>{
+  doLogin = tryingUser => {
     LoginService.logIn(tryingUser.email, tryingUser.password)
     .then((userCredential) => {
 
-      let connectedUser = userCredential.user;
+      let connectedUser = userCredential.user ;
       this.setState({
         connectedUser:connectedUser,
         loginFormError: null
       })
-      this.render();
+      this.render() ;
 
     })
     .catch((error) => {
         this.setState({
-            loginFormError: "Email or password are incorrects"
-          })
-        this.render();
+            loginFormError: 'Email or password are incorrects' 
+        })
+        this.render() ;
     });
   }
 
@@ -43,12 +43,12 @@ class App extends React.Component{
     })
   }
 
-  logOut = () =>{
+  logOut = () => {
     LoginService.logOut().then(() => {
         this.setState({
             connectedUser:{}
           })
-        this.render();
+        this.render() ;
     }).catch((error) => {
     })
   }
@@ -56,27 +56,27 @@ class App extends React.Component{
     render() {
       return(
         <React.Fragment>
-            <div id="content">
+            <div id = 'content'>
             </div>
-            <div id="rscontent">
+            <div id = 'rscontent'>
 
             </div>
-            <div id="mcontent">
+            <div id = 'mcontent'>
                 {LoginService.isActiveSession() ? <WelcomePage
-                                                connectedUser={this.state.connectedUser}
-                                                logOut={this.logOut}
-                                                refreshClock={this.refreshClock}
-                                                time={this.state.time}
+                                                connectedUser = {this.state.connectedUser}
+                                                logOut = {this.logOut}
+                                                refreshClock = {this.refreshClock}
+                                                time = {this.state.time}
                                                 /> 
                                                 
                                                 :
 
                                                 <LoginForm
-                                                doLogin={this.doLogin}
+                                                doLogin = {this.doLogin}
                                                 loginFormError = {this.state.loginFormError}   
                                                 /> }
             </div>
-            <div id="lscontent"></div>
+            <div id = 'lscontent'></div>
         </React.Fragment>
       )
     }
