@@ -4,12 +4,10 @@
       min-width:200px;
 }
 .welcomeText{
-    font-family: "Roboto" !important;
     font-size:30px;
     color:grey;
 }
 .welcomeMessage{
-    font-family: "Roboto" !important;
     font-size:15px;
     color:grey;
 }
